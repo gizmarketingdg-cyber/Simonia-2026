@@ -1,1674 +1,1125 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatório de Branding 2026 - Simonia Teodoro</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --coral: #C96B5F;
-            --preto: #000000;
-            --branco: #FFFFFF;
-            --creme: #F5F1ED;
-            --verde: #9CAF88;
-            --dourado: #D4AF37;
-            --lavanda: #B695C0;
-            --bege: #D4C5B0;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--preto);
-            background-color: var(--creme);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--coral) 0%, var(--lavanda) 100%);
-            color: var(--branco);
-            padding: 60px 0 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.1);
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-        }
-
-        .logo-container {
-            background: var(--branco);
-            padding: 30px;
-            border-radius: 20px;
-            display: inline-block;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .logo-container img {
-            max-width: 300px;
-            height: auto;
-            display: block;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .subtitle {
-            font-size: 1.2em;
-            opacity: 0.95;
-            margin-bottom: 10px;
-        }
-
-        .report-info {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-
-        .info-badge {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 0.9em;
-            backdrop-filter: blur(10px);
-        }
-
-        /* Navigation */
-        .nav-section {
-            background: var(--branco);
-            padding: 40px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
-
-        .nav-item {
-            background: var(--creme);
-            border: 2px solid var(--coral);
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .nav-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(201, 107, 95, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .nav-item:hover::before {
-            left: 100%;
-        }
-
-        .nav-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(201, 107, 95, 0.3);
-            background: var(--branco);
-        }
-
-        .nav-icon {
-            font-size: 2em;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .nav-title {
-            font-weight: 600;
-            color: var(--coral);
-            font-size: 1.1em;
-        }
-
-        /* Main Content */
-        main {
-            padding: 60px 0;
-        }
-
-        .section {
-            background: var(--branco);
-            border-radius: 20px;
-            margin-bottom: 30px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
-
-        .section:hover {
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-        }
-
-        .section-header {
-            background: linear-gradient(135deg, var(--coral) 0%, var(--dourado) 100%);
-            color: var(--branco);
-            padding: 30px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .section-header:hover {
-            background: linear-gradient(135deg, #D47569 0%, #E0BE4A 100%);
-        }
-
-        .section-header h2 {
-            font-size: 1.8em;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .section-icon {
-            font-size: 1.2em;
-        }
-
-        .toggle-icon {
-            font-size: 1.5em;
-            transition: transform 0.3s ease;
-        }
-
-        .section-header.active .toggle-icon {
-            transform: rotate(180deg);
-        }
-
-        .section-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-        }
-
-        .section-content.active {
-            max-height: 10000px;
-        }
-
-        .section-body {
-            padding: 40px;
-        }
-
-        /* Content Styling */
-        h3 {
-            color: var(--coral);
-            font-size: 1.6em;
-            margin: 30px 0 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid var(--coral);
-        }
-
-        h4 {
-            color: var(--preto);
-            font-size: 1.3em;
-            margin: 25px 0 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        p {
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
-
-        ul, ol {
-            margin: 15px 0 15px 30px;
-        }
-
-        li {
-            margin-bottom: 10px;
-            line-height: 1.7;
-        }
-
-        .highlight-box {
-            background: var(--creme);
-            border-left: 5px solid var(--coral);
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 10px;
-        }
-
-        .arquetipo-card {
-            background: linear-gradient(135deg, var(--creme) 0%, var(--branco) 100%);
-            border: 2px solid var(--coral);
-            border-radius: 15px;
-            padding: 25px;
-            margin: 20px 0;
-        }
-
-        .arquetipo-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
-        .arquetipo-icon {
-            font-size: 2.5em;
-        }
-
-        .arquetipo-title {
-            font-size: 1.5em;
-            font-weight: 700;
-            color: var(--coral);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .stat-card {
-            background: var(--coral);
-            color: var(--branco);
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(201, 107, 95, 0.3);
-        }
-
-        .stat-number {
-            font-size: 2.5em;
-            font-weight: 700;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            font-size: 0.9em;
-            opacity: 0.9;
-        }
-
-        .color-palette {
-            display: flex;
-            gap: 20px;
-            margin: 25px 0;
-            flex-wrap: wrap;
-        }
-
-        .color-swatch {
-            text-align: center;
-        }
-
-        .color-box {
-            width: 100px;
-            height: 100px;
-            border-radius: 15px;
-            margin-bottom: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            border: 3px solid var(--branco);
-        }
-
-        .color-name {
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .color-code {
-            font-family: monospace;
-            font-size: 0.9em;
-            color: #666;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        thead {
-            background: var(--coral);
-            color: var(--branco);
-        }
-
-        th {
-            padding: 15px;
-            text-align: left;
-            font-weight: 600;
-        }
-
-        td {
-            padding: 15px;
-            border-bottom: 1px solid var(--creme);
-        }
-
-        tbody tr:hover {
-            background: var(--creme);
-        }
-
-        .check-list {
-            list-style: none;
-            margin-left: 0;
-        }
-
-        .check-list li {
-            padding-left: 35px;
-            position: relative;
-            margin-bottom: 15px;
-        }
-
-        .check-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--verde);
-            font-weight: bold;
-            font-size: 1.5em;
-        }
-
-        .cross-list {
-            list-style: none;
-            margin-left: 0;
-        }
-
-        .cross-list li {
-            padding-left: 35px;
-            position: relative;
-            margin-bottom: 15px;
-        }
-
-        .cross-list li::before {
-            content: '✗';
-            position: absolute;
-            left: 0;
-            color: var(--coral);
-            font-weight: bold;
-            font-size: 1.5em;
-        }
-
-        /* Calendar Grid */
-        .calendar-month {
-            background: var(--creme);
-            border-radius: 15px;
-            padding: 25px;
-            margin: 25px 0;
-        }
-
-        .month-header {
-            background: var(--coral);
-            color: var(--branco);
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .month-title {
-            font-size: 1.4em;
-            font-weight: 700;
-        }
-
-        .week-item {
-            background: var(--branco);
-            border-left: 5px solid var(--coral);
-            padding: 20px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-        }
-
-        .week-title {
-            font-weight: 700;
-            color: var(--coral);
-            margin-bottom: 10px;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--preto);
-            color: var(--branco);
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        .footer-content {
-            margin-bottom: 20px;
-        }
-
-        .footer-logo {
-            font-size: 1.5em;
-            font-weight: 700;
-            color: var(--coral);
-            margin-bottom: 10px;
-        }
-
-        /* Scroll to top button */
-        .scroll-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--coral);
-            color: var(--branco);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5em;
-            cursor: pointer;
-            opacity: 0;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(201, 107, 95, 0.4);
-            z-index: 1000;
-        }
-
-        .scroll-top.visible {
-            opacity: 1;
-        }
-
-        .scroll-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(201, 107, 95, 0.6);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.8em;
-            }
-
-            .subtitle {
-                font-size: 1em;
-            }
-
-            .report-info {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .nav-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-header h2 {
-                font-size: 1.3em;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .color-palette {
-                justify-content: center;
-            }
-
-            .scroll-top {
-                bottom: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
-            }
-        }
-
-        /* Print Styles */
-        @media print {
-            .nav-section,
-            .scroll-top {
-                display: none;
-            }
-
-            .section-content {
-                max-height: none !important;
-            }
-
-            body {
-                background: white;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relatório de Branding 2026 Simonia Teodoro</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --coral: #C96B5F;
+    --preto: #000000;
+    --branco: #FFFFFF;
+    --creme: #F5F1ED;
+    --verde: #9CAF88;
+    --dourado: #D4AF37;
+    --lavanda: #B695C0;
+    --bege: #D4C5B0;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--preto);
+    background-color: var(--creme);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, var(--coral) 0%, var(--lavanda) 100%);
+    color: var(--branco);
+    padding: 60px 0 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.logo-container {
+    background: var(--branco);
+    padding: 30px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.logo-container img {
+    max-width: 300px;
+    height: auto;
+    display: block;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+    font-size: 1.2em;
+    opacity: 0.95;
+    margin-bottom: 10px;
+}
+
+.report-info {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.info-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.9em;
+    backdrop-filter: blur(10px);
+}
+
+/* Navigation */
+.nav-section {
+    background: var(--branco);
+    padding: 40px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.nav-item {
+    background: var(--creme);
+    border: 2px solid var(--coral);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(201, 107, 95, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.nav-item:hover::before {
+    left: 100%;
+}
+
+.nav-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(201, 107, 95, 0.3);
+    background: var(--branco);
+}
+
+.nav-icon {
+    font-size: 2em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.nav-title {
+    font-weight: 600;
+    color: var(--coral);
+    font-size: 1.1em;
+}
+
+/* Main Content */
+main {
+    padding: 60px 0;
+}
+
+.section {
+    background: var(--branco);
+    border-radius: 20px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.section:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.section-header {
+    background: linear-gradient(135deg, var(--coral) 0%, var(--dourado) 100%);
+    color: var(--branco);
+    padding: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.section-header:hover {
+    background: linear-gradient(135deg, #D47569 0%, #E0BE4A 100%);
+}
+
+.section-header h2 {
+    font-size: 1.8em;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.section-icon {
+    font-size: 1.2em;
+}
+
+.toggle-icon {
+    font-size: 1.5em;
+    transition: transform 0.3s ease;
+}
+
+.section-header.active .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.section-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.section-content.active {
+    max-height: 10000px;
+}
+
+.section-body {
+    padding: 40px;
+}
+
+/* Content Styling */
+h3 {
+    color: var(--coral);
+    font-size: 1.6em;
+    margin: 30px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--coral);
+}
+
+h4 {
+    color: var(--preto);
+    font-size: 1.3em;
+    margin: 25px 0 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+ul, ol {
+    margin: 15px 0 15px 30px;
+}
+
+li {
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+
+.highlight-box {
+    background: var(--creme);
+    border-left: 5px solid var(--coral);
+    padding: 20px;
+    margin: 25px 0;
+    border-radius: 10px;
+}
+
+.arquetipo-card {
+    background: linear-gradient(135deg, var(--creme) 0%, var(--branco) 100%);
+    border: 2px solid var(--coral);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 20px 0;
+}
+
+.arquetipo-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.arquetipo-icon {
+    font-size: 2.5em;
+}
+
+.arquetipo-title {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--coral);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.stat-card {
+    background: var(--coral);
+    color: var(--branco);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(201, 107, 95, 0.3);
+}
+
+.stat-number {
+    font-size: 2.5em;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+.color-palette {
+    display: flex;
+    gap: 20px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.color-swatch {
+    text-align: center;
+}
+
+.color-box {
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: 3px solid var(--branco);
+}
+
+.color-name {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.color-code {
+    font-family: monospace;
+    font-size: 0.9em;
+    color: #666;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+thead {
+    background: var(--coral);
+    color: var(--branco);
+}
+
+th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid var(--creme);
+}
+
+tbody tr:hover {
+    background: var(--creme);
+}
+
+.check-list {
+    list-style: none;
+    margin-left: 0;
+}
+
+.check-list li {
+    padding-left: 35px;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.check-list li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: var(--verde);
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.cross-list {
+    list-style: none;
+    margin-left: 0;
+}
+
+.cross-list li {
+    padding-left: 35px;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.cross-list li::before {
+    content: '✖';
+    position: absolute;
+    left: 0;
+    color: var(--coral);
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+/* Calendar Grid */
+.calendar-month {
+    background: var(--creme);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 25px 0;
+}
+
+.month-header {
+    background: var(--coral);
+    color: var(--branco);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.month-title {
+    font-size: 1.4em;
+    font-weight: 700;
+}
+
+.week-item {
+    background: var(--branco);
+    border-left: 5px solid var(--coral);
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.week-title {
+    font-weight: 700;
+    color: var(--coral);
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    background: var(--preto);
+    color: var(--branco);
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-content {
+    margin-bottom: 20px;
+}
+
+.footer-logo {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--coral);
+    margin-bottom: 10px;
+}
+
+/* Scroll to top button */
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--coral);
+    color: var(--branco);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(201, 107, 95, 0.4);
+    z-index: 1000;
+}
+
+.scroll-top.visible {
+    opacity: 1;
+}
+
+.scroll-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(201, 107, 95, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    .subtitle {
+        font-size: 1em;
+    }
+    .report-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .nav-grid {
+        grid-template-columns: 1fr;
+    }
+    .section-header h2 {
+        font-size: 1.3em;
+    }
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .color-palette {
+        justify-content: center;
+    }
+    .scroll-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .nav-section, .scroll-top {
+        display: none;
+    }
+    .section-content {
+        max-height: none !important;
+    }
+    body {
+        background: white;
+    }
+}
+</style>
 </head>
+
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo-container">
-                    <!-- Logo será inserida aqui via GitHub -->
-                    <img src="logo-simonia.png" alt="Simonia Teodoro - Saúde Total">
-                </div>
-                <h1>Relatório de Desempenho e Estratégia de Branding 2026</h1>
-                <p class="subtitle">@simonia_teodoro</p>
-                <div class="report-info">
-                    <span class="info-badge">📅 Período: 30 Nov - 29 Dez 2025</span>
-                    <span class="info-badge">📊 Formato: 2 conteúdos/semana</span>
-                    <span class="info-badge">🎯 Elaborado por: Giz Marketing Digital</span>
-                </div>
+<header>
+    <div class="container">
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="logo-simonia.png" alt="Simonia Teodoro - Saúde Total">
+            </div>
+            <h1>Relatório de Desempenho e Estratégia de Branding 2026</h1>
+            <p class="subtitle">@simonia_teodoro</p>
+            <div class="report-info">
+                <span class="info-badge">Período: 30 Nov - 29 Dez 2025</span>
+                <span class="info-badge">Formato: 2 conteúdos/semana</span>
+                <span class="info-badge">Elaborado por: Giz Marketing Digital</span>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
-    <!-- Navigation -->
-    <nav class="nav-section">
-        <div class="container">
-            <div class="nav-grid">
-                <div class="nav-item" onclick="scrollToSection('arquetipos')">
-                    <span class="nav-icon">🎯</span>
-                    <div class="nav-title">Arquétipos de Marca</div>
-                </div>
-                <div class="nav-item" onclick="scrollToSection('significado')">
-                    <span class="nav-icon">💡</span>
-                    <div class="nav-title">O Que Significa</div>
-                </div>
-                <div class="nav-item" onclick="scrollToSection('desempenho')">
-                    <span class="nav-icon">📊</span>
-                    <div class="nav-title">Análise de Desempenho</div>
-                </div>
-                <div class="nav-item" onclick="scrollToSection('identidade')">
-                    <span class="nav-icon">🎨</span>
-                    <div class="nav-title">Identidade Visual</div>
-                </div>
-                <div class="nav-item" onclick="scrollToSection('estrategia')">
-                    <span class="nav-icon">🚀</span>
-                    <div class="nav-title">Estratégia de Branding</div>
-                </div>
-                <div class="nav-item" onclick="scrollToSection('calendario')">
-                    <span class="nav-icon">📅</span>
-                    <div class="nav-title">Calendário 2026</div>
-                </div>
-                <div class="nav-item" onclick="scrollToSection('diretrizes')">
-                    <span class="nav-icon">📝</span>
-                    <div class="nav-title">Diretrizes de Conteúdo</div>
-                </div>
-                <div class="nav-item" onclick="scrollToSection('crescimento')">
-                    <span class="nav-icon">📈</span>
-                    <div class="nav-title">Metas de Crescimento</div>
-                </div>
+<nav class="nav-section">
+    <div class="container">
+        <div class="nav-grid">
+            <div class="nav-item" data-section="arquetipos">
+                <span class="nav-icon"></span>
+                <div class="nav-title">Arquétipos de Marca</div>
+            </div>
+            <div class="nav-item" data-section="significado">
+                <span class="nav-icon"></span>
+                <div class="nav-title">O Que Significa</div>
+            </div>
+            <div class="nav-item" data-section="desempenho">
+                <span class="nav-icon"></span>
+                <div class="nav-title">Análise de Desempenho</div>
+            </div>
+            <div class="nav-item" data-section="identidade">
+                <span class="nav-icon"></span>
+                <div class="nav-title">Identidade Visual</div>
+            </div>
+            <div class="nav-item" data-section="estrategia">
+                <span class="nav-icon"></span>
+                <div class="nav-title">Estratégia de Branding</div>
+            </div>
+            <div class="nav-item" data-section="calendario">
+                <span class="nav-icon"></span>
+                <div class="nav-title">Calendário 2026</div>
+            </div>
+            <div class="nav-item" data-section="diretrizes">
+                <span class="nav-icon"></span>
+                <div class="nav-title">Diretrizes de Conteúdo</div>
+            </div>
+            <div class="nav-item" data-section="crescimento">
+                <span class="nav-icon"></span>
+                <div class="nav-title">Metas de Crescimento</div>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <!-- Main Content -->
-    <main>
-        <div class="container">
-            <!-- Seção 1: Arquétipos -->
-            <section class="section" id="arquetipos">
-                <div class="section-header" onclick="toggleSection(this)">
-                    <h2><span class="section-icon">🎯</span> Descoberta Estratégica: Seus Arquétipos de Marca</h2>
-                    <span class="toggle-icon">▼</span>
-                </div>
-                <div class="section-content">
-                    <div class="section-body">
-                        <h3>Resultado do Teste de Arquétipos</h3>
+<main>
+<div class="container">
 
-                        <div class="arquetipo-card">
-                            <div class="arquetipo-header">
-                                <span class="arquetipo-icon">🤲</span>
-                                <div>
-                                    <div class="arquetipo-title">CUIDADOR - 25%</div>
-                                    <div style="color: #666;">Arquétipo Dominante</div>
-                                </div>
-                            </div>
-                            <p><strong>Características:</strong> Cuidado, conexão, empatia e comportamento</p>
-                            <p><strong>Essência:</strong> "Estou aqui para você"</p>
-                        </div>
-
-                        <h4>Arquétipos Secundários</h4>
-
-                        <div class="arquetipo-card">
-                            <div class="arquetipo-header">
-                                <span class="arquetipo-icon">✨</span>
-                                <div>
-                                    <div class="arquetipo-title">MAGO - 25%</div>
-                                </div>
-                            </div>
-                            <p><strong>Características:</strong> Inspiração, encantamento, magia, transformação e consciência</p>
-                            <p><strong>Essência:</strong> "Tudo é possível"</p>
-                        </div>
-
-                        <div class="arquetipo-card">
-                            <div class="arquetipo-header">
-                                <span class="arquetipo-icon">🎨</span>
-                                <div>
-                                    <div class="arquetipo-title">CRIADOR - 17%</div>
-                                </div>
-                            </div>
-                            <p><strong>Características:</strong> Criatividade, curiosidade, integridade, inovação e imaginação</p>
-                            <p><strong>Essência:</strong> "Se você consegue imaginar, pode criar"</p>
-                        </div>
+<section class="section" id="arquetipos">
+    <div class="section-header">
+        <h2><span class="section-icon"></span> Descoberta Estratégica: Seus Arquétipos de Marca</h2>
+        <span class="toggle-icon"></span>
+    </div>
+    <div class="section-content">
+        <div class="section-body">
+            <h3>Resultado do Teste de Arquétipos</h3>
+            <div class="arquetipo-card">
+                <div class="arquetipo-header">
+                    <span class="arquetipo-icon"></span>
+                    <div>
+                        <div class="arquetipo-title">CUIDADOR - 25%</div>
+                        <div style="color: #666;">Arquétipo Dominante</div>
                     </div>
                 </div>
-            </section>
-
-            <!-- Seção 2: O Que Isso Significa -->
-            <section class="section" id="significado">
-                <div class="section-header" onclick="toggleSection(this)">
-                    <h2><span class="section-icon">💡</span> O Que Isso Significa Para Sua Marca</h2>
-                    <span class="toggle-icon">▼</span>
-                </div>
-                <div class="section-content">
-                    <div class="section-body">
-                        <h3>A Combinação Perfeita para Mulheres 40+</h3>
-                        
-                        <div class="highlight-box">
-                            <h4>CUIDADOR + MAGO + CRIADOR = Transformação Acolhedora</h4>
-                            <p>Seus arquétipos revelam algo fundamental: você não é apenas uma personal trainer que ensina exercícios. <strong>Você é uma facilitadora de transformação pessoal através do movimento.</strong></p>
-                        </div>
-
-                        <h4>🤲 CUIDADOR (25%) garante que:</h4>
-                        <ul class="check-list">
-                            <li>Suas alunas se sintam seguras e acolhidas</li>
-                            <li>O ambiente é de suporte, não de cobrança</li>
-                            <li>Cada pessoa é vista em sua individualidade</li>
-                            <li>O processo respeita limitações e celebra pequenas vitórias</li>
-                        </ul>
-
-                        <h4>✨ MAGO (25%) traz:</h4>
-                        <ul class="check-list">
-                            <li>A crença real de que transformação é possível</li>
-                            <li>O encantamento de ver o corpo responder</li>
-                            <li>A consciência de que movimento é mais que estética</li>
-                            <li>A inspiração para continuar mesmo quando difícil</li>
-                        </ul>
-
-                        <h4>🎨 CRIADOR (17%) adiciona:</h4>
-                        <ul class="check-list">
-                            <li>Personalização dos treinos</li>
-                            <li>Inovação nos métodos</li>
-                            <li>Curiosidade sobre o que funciona para cada corpo</li>
-                            <li>Integridade no processo (sem promessas vazias)</li>
-                        </ul>
-
-                        <h3>Por Que Isso Importa</h3>
-                        
-                        <div class="highlight-box">
-                            <h4>Diferenciação de mercado:</h4>
-                            <p>A maioria das personal trainers usa arquétipos como:</p>
-                            <ul>
-                                <li><strong>Herói:</strong> "Vença seus limites! Supere-se!"</li>
-                                <li><strong>Governante:</strong> "Domine seu corpo! Controle total!"</li>
-                                <li><strong>Explorador:</strong> "Desafie-se! Saia da zona de conforto!"</li>
-                            </ul>
-                            <p style="margin-top: 20px; font-size: 1.2em; font-weight: 600; color: var(--coral);">Você oferece o oposto disso.</p>
-                            <p>E para mulheres 40+ que estão retomando movimento após anos paradas, sua abordagem é <strong>exatamente</strong> o que elas precisam.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Seção 3: Análise de Desempenho -->
-            <section class="section" id="desempenho">
-                <div class="section-header" onclick="toggleSection(this)">
-                    <h2><span class="section-icon">📊</span> Análise de Desempenho (30 Nov - 29 Dez)</h2>
-                    <span class="toggle-icon">▼</span>
-                </div>
-                <div class="section-content">
-                    <div class="section-body">
-                        <h3>Números do Período</h3>
-
-                        <div class="stats-grid">
-                            <div class="stat-card">
-                                <span class="stat-number">37.760</span>
-                                <span class="stat-label">Visualizações Totais</span>
-                            </div>
-                            <div class="stat-card">
-                                <span class="stat-number">2.013</span>
-                                <span class="stat-label">Seguidores</span>
-                            </div>
-                            <div class="stat-card">
-                                <span class="stat-number">+101</span>
-                                <span class="stat-label">Novos Seguidores</span>
-                            </div>
-                            <div class="stat-card">
-                                <span class="stat-number">659</span>
-                                <span class="stat-label">Interações</span>
-                            </div>
-                            <div class="stat-card">
-                                <span class="stat-number">6.062</span>
-                                <span class="stat-label">Contas Alcançadas</span>
-                            </div>
-                            <div class="stat-card" style="background: var(--dourado);">
-                                <span class="stat-number">32,7%</span>
-                                <span class="stat-label">Taxa de Engajamento ⭐</span>
-                            </div>
-                        </div>
-
-                        <div class="highlight-box">
-                            <h4>O QUE ESSES NÚMEROS SIGNIFICAM:</h4>
-                            <p><strong>Engajamento de 32,7% é EXCEPCIONAL</strong></p>
-                            <ul>
-                                <li>Média do mercado: 3-5%</li>
-                                <li>Você está <strong>6-10x acima da média</strong></li>
-                                <li>Isso indica público genuinamente conectado com sua mensagem</li>
-                                <li><strong>Seus arquétipos estão ressoando!</strong></li>
-                            </ul>
-                        </div>
-
-                        <h3>Distribuição de Visualizações</h3>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Formato</th>
-                                    <th>% Visualizações</th>
-                                    <th>% Interações</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Stories</strong></td>
-                                    <td>72,2%</td>
-                                    <td>72,0%</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Reels</strong></td>
-                                    <td>18,3%</td>
-                                    <td>20,3%</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Posts</strong></td>
-                                    <td>9,5%</td>
-                                    <td>7,8%</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <h3>Performance dos Reels (Onde Está o Ouro)</h3>
-                        
-                        <div class="highlight-box" style="border-left-color: var(--dourado);">
-                            <h4>🏆 Top Reel: "ME DÊ 21 DIAS..." - 4.611 visualizações</h4>
-                            <ul>
-                                <li>141 curtidas</li>
-                                <li>Conteúdo com movimento e energia</li>
-                                <li><strong>3-7x mais visualizações</strong> que outros Reels</li>
-                            </ul>
-                        </div>
-
-                        <h4>Por que funcionou?</h4>
-                        <ul class="check-list">
-                            <li>Movimento constante (visual dinâmico)</li>
-                            <li>Contexto de treino real (autenticidade)</li>
-                            <li>Energia acolhedora mas motivadora</li>
-                            <li><strong>Manifesta seus arquétipos perfeitamente:</strong>
-                                <ul style="margin-top: 10px;">
-                                    <li>Cuidador: "Vou te guiar nessa jornada"</li>
-                                    <li>Mago: "Em 21 dias, sua vida muda"</li>
-                                    <li>Criador: Treino personalizado e inovador</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Seção 4: Identidade Visual -->
-            <section class="section" id="identidade">
-                <div class="section-header" onclick="toggleSection(this)">
-                    <h2><span class="section-icon">🎨</span> Identidade Visual Baseada nos Arquétipos</h2>
-                    <span class="toggle-icon">▼</span>
-                </div>
-                <div class="section-content">
-                    <div class="section-body">
-                        <h3>Sua Paleta de Marca (Baseada na Logo Existente)</h3>
-
-                        <div class="highlight-box">
-                            <h4>🟧 COR PRINCIPAL - CORAL/TERRACOTA: #C96B5F</h4>
-                            <p><strong>Por que essa cor é perfeita para seus arquétipos:</strong></p>
-                            <ul class="check-list">
-                                <li><strong>CUIDADOR:</strong> Tom quente e acolhedor (não agressivo)</li>
-                                <li><strong>MAGO:</strong> Energia vital e transformadora</li>
-                                <li><strong>CRIADOR:</strong> Criatividade e vitalidade</li>
-                            </ul>
-                        </div>
-
-                        <p>O coral/terracota é uma cor que transmite:</p>
-                        <ul>
-                            <li>Calor humano sem ser infantil</li>
-                            <li>Energia sem ser agressiva</li>
-                            <li>Vitalidade sem ser intimidadora</li>
-                            <li>Feminilidade madura e confiante</li>
-                        </ul>
-
-                        <h3>Paleta de Cores Completa</h3>
-
-                        <h4>Cores Principais:</h4>
-                        <div class="color-palette">
-                            <div class="color-swatch">
-                                <div class="color-box" style="background: #C96B5F;"></div>
-                                <div class="color-name">Coral</div>
-                                <div class="color-code">#C96B5F</div>
-                            </div>
-                            <div class="color-swatch">
-                                <div class="color-box" style="background: #000000;"></div>
-                                <div class="color-name">Preto</div>
-                                <div class="color-code">#000000</div>
-                            </div>
-                            <div class="color-swatch">
-                                <div class="color-box" style="background: #FFFFFF; border: 2px solid #ccc;"></div>
-                                <div class="color-name">Branco</div>
-                                <div class="color-code">#FFFFFF</div>
-                            </div>
-                            <div class="color-swatch">
-                                <div class="color-box" style="background: #F5F1ED;"></div>
-                                <div class="color-name">Creme</div>
-                                <div class="color-code">#F5F1ED</div>
-                            </div>
-                        </div>
-
-                        <h4>Cores Complementares (Para Expansão):</h4>
-                        <div class="color-palette">
-                            <div class="color-swatch">
-                                <div class="color-box" style="background: #D4AF37;"></div>
-                                <div class="color-name">Dourado</div>
-                                <div class="color-code">#D4AF37</div>
-                            </div>
-                            <div class="color-swatch">
-                                <div class="color-box" style="background: #9CAF88;"></div>
-                                <div class="color-name">Verde Sálvia</div>
-                                <div class="color-code">#9CAF88</div>
-                            </div>
-                            <div class="color-swatch">
-                                <div class="color-box" style="background: #B695C0;"></div>
-                                <div class="color-name">Lavanda</div>
-                                <div class="color-code">#B695C0</div>
-                            </div>
-                            <div class="color-swatch">
-                                <div class="color-box" style="background: #D4C5B0;"></div>
-                                <div class="color-name">Bege</div>
-                                <div class="color-code">#D4C5B0</div>
-                            </div>
-                        </div>
-
-                        <h3>Como Usar Sua Paleta</h3>
-
-                        <div class="arquetipo-card">
-                            <h4>🤲 CONTEÚDO CUIDADOR (30% do mix)</h4>
-                            <ul>
-                                <li>Coral + Creme/Branco</li>
-                                <li>Tons suaves e acolhedores</li>
-                                <li>Fundo claro para transmitir leveza</li>
-                            </ul>
-                        </div>
-
-                        <div class="arquetipo-card">
-                            <h4>✨ CONTEÚDO MAGO (40% do mix)</h4>
-                            <ul>
-                                <li>Coral + Dourado (toques)</li>
-                                <li>Coral + Lavanda (transformação)</li>
-                                <li>Contraste para gerar inspiração</li>
-                            </ul>
-                        </div>
-
-                        <div class="arquetipo-card">
-                            <h4>🎨 CONTEÚDO CRIADOR (30% do mix)</h4>
-                            <ul>
-                                <li>Coral + Verde Sálvia</li>
-                                <li>Coral + Bege</li>
-                                <li>Mix orgânico e natural</li>
-                            </ul>
-                        </div>
-
-                        <h3>Estilo Visual</h3>
-
-                        <h4>Fotografia:</h4>
-                        <ul>
-                            <li>Luz natural sempre que possível</li>
-                            <li>Expressões calorosas e acessíveis</li>
-                            <li>Mostrar processo (não só pose final)</li>
-                            <li>Ambientes: academia, ar livre, casa</li>
-                        </ul>
-
-                        <h4>Composição:</h4>
-                        <ul>
-                            <li>Espaços respiráveis (não poluído)</li>
-                            <li>Foco na pessoa, não nos equipamentos</li>
-                            <li>Movimento capturado (não estático)</li>
-                            <li>Variedade de ângulos</li>
-                            <li><strong>Usar coral em elementos gráficos</strong> (textos, bordas, destaques)</li>
-                        </ul>
-
-                        <h4>Tipografia:</h4>
-                        <ul>
-                            <li>Fontes arredondadas (acolhimento) - similar à sua logo</li>
-                            <li>Legível e clara (respeito ao leitor)</li>
-                            <li>Hierarquia visual suave (não agressiva)</li>
-                            <li>Preto para texto principal (como na logo)</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Seção 5: Estratégia de Branding -->
-            <section class="section" id="estrategia">
-                <div class="section-header" onclick="toggleSection(this)">
-                    <h2><span class="section-icon">🚀</span> Estratégia de Branding 2026</h2>
-                    <span class="toggle-icon">▼</span>
-                </div>
-                <div class="section-content">
-                    <div class="section-body">
-                        <h3>Como Seus Arquétipos Devem Guiar o Conteúdo</h3>
-
-                        <div class="arquetipo-card">
-                            <div class="arquetipo-header">
-                                <span class="arquetipo-icon">🤲</span>
-                                <div class="arquetipo-title">CUIDADOR (Presente em TODO conteúdo)</div>
-                            </div>
-                            
-                            <h4>Tom de voz:</h4>
-                            <ul>
-                                <li>Acolhedor, nunca intimidador</li>
-                                <li>"Vamos juntas" em vez de "Você precisa"</li>
-                                <li>Celebrar pequenos progressos</li>
-                                <li>Normalizar dificuldades</li>
-                            </ul>
-
-                            <h4>Temas:</h4>
-                            <ul>
-                                <li>Respeitar o corpo onde ele está</li>
-                                <li>Movimento como autocuidado (não punição)</li>
-                                <li>Escutar os sinais do corpo</li>
-                                <li>Criar rotinas sustentáveis</li>
-                            </ul>
-
-                            <h4>Frases de marca:</h4>
-                            <ul>
-                                <li>"Seu corpo merece cuidado, não cobrança"</li>
-                                <li>"Movimento que acolhe, não que exige"</li>
-                                <li>"Vamos no seu ritmo, sem pressa"</li>
-                                <li>"Cada corpo tem sua história"</li>
-                            </ul>
-
-                            <h4>Elementos visuais:</h4>
-                            <ul>
-                                <li>Usar coral em fundos suaves</li>
-                                <li>Fotos com expressões calorosas</li>
-                                <li>Espaço visual respirável</li>
-                                <li>Tipografia arredondada</li>
-                            </ul>
-                        </div>
-
-                        <div class="arquetipo-card">
-                            <div class="arquetipo-header">
-                                <span class="arquetipo-icon">✨</span>
-                                <div class="arquetipo-title">MAGO (Conteúdo inspiracional - 40% do mix)</div>
-                            </div>
-                            
-                            <h4>Tom de voz:</h4>
-                            <ul>
-                                <li>Inspirador mas realista</li>
-                                <li>"É possível" com base em evidências</li>
-                                <li>Transformação como processo natural</li>
-                                <li>Consciência corpo-mente</li>
-                            </ul>
-
-                            <h4>Temas:</h4>
-                            <ul>
-                                <li>Transformações reais (antes/durante/depois)</li>
-                                <li>Ciência do movimento explicada de forma simples</li>
-                                <li>Como o corpo se adapta e melhora</li>
-                                <li>Benefícios além da estética (energia, sono, humor)</li>
-                            </ul>
-
-                            <h4>Frases de marca:</h4>
-                            <ul>
-                                <li>"Seu corpo é mais sábio do que você imagina"</li>
-                                <li>"Transformação acontece célula por célula"</li>
-                                <li>"O movimento transforma mais que músculos"</li>
-                                <li>"Você tem o poder de ativar seu corpo"</li>
-                            </ul>
-
-                            <h4>Elementos visuais:</h4>
-                            <ul>
-                                <li>Coral + Dourado (transformação)</li>
-                                <li>Coral + Lavanda (consciência)</li>
-                                <li>Contraste visual mais marcante</li>
-                                <li>Imagens de movimento e energia</li>
-                            </ul>
-                        </div>
-
-                        <div class="arquetipo-card">
-                            <div class="arquetipo-header">
-                                <span class="arquetipo-icon">🎨</span>
-                                <div class="arquetipo-title">CRIADOR (Conteúdo educativo - 30% do mix)</div>
-                            </div>
-                            
-                            <h4>Tom de voz:</h4>
-                            <ul>
-                                <li>Curioso e explorador</li>
-                                <li>"Vamos testar" em vez de "Faça assim"</li>
-                                <li>Personalização como valor</li>
-                                <li>Inovação nos métodos</li>
-                            </ul>
-
-                            <h4>Temas:</h4>
-                            <ul>
-                                <li>Diferentes formas de movimento</li>
-                                <li>Adaptações de exercícios</li>
-                                <li>Como personalizar treinos</li>
-                                <li>Experimentação consciente</li>
-                            </ul>
-
-                            <h4>Frases de marca:</h4>
-                            <ul>
-                                <li>"Cada corpo responde de um jeito único"</li>
-                                <li>"Vamos descobrir o que funciona pra você"</li>
-                                <li>"Treino personalizado é treino eficiente"</li>
-                                <li>"Movimento pode ser criativo"</li>
-                            </ul>
-
-                            <h4>Elementos visuais:</h4>
-                            <ul>
-                                <li>Coral + Verde (natureza, movimento)</li>
-                                <li>Coral + Bege (tons terrosos)</li>
-                                <li>Sequências de exercícios</li>
-                                <li>Variações e adaptações mostradas</li>
-                            </ul>
-                        </div>
-
-                        <h3>Mix de Conteúdo Estratégico 2026</h3>
-                        <p><strong>Para 2 posts/semana = 8-10 posts/mês</strong></p>
-
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Arquétipo</th>
-                                    <th>% do Mix</th>
-                                    <th>Posts/Mês</th>
-                                    <th>Foco</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>CUIDADOR</strong></td>
-                                    <td>30%</td>
-                                    <td>3 posts</td>
-                                    <td>Autocuidado, respeitar limites, celebrar vitórias</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>MAGO</strong></td>
-                                    <td>40%</td>
-                                    <td>4 posts</td>
-                                    <td>Transformações, ciência, benefícios amplos</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>CRIADOR</strong></td>
-                                    <td>30%</td>
-                                    <td>3 posts</td>
-                                    <td>Variações, adaptações, personalização</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <div class="highlight-box">
-                            <p><strong>FORMATO PRIORITÁRIO:</strong> Reels com movimento (como o que teve 4.611 views)</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Seção 6: Calendário Editorial -->
-            <section class="section" id="calendario">
-                <div class="section-header" onclick="toggleSection(this)">
-                    <h2><span class="section-icon">📅</span> Calendário Editorial 2026 Baseado em Arquétipos</h2>
-                    <span class="toggle-icon">▼</span>
-                </div>
-                <div class="section-content">
-                    <div class="section-body">
-                        <div class="calendar-month">
-                            <div class="month-header">
-                                <div class="month-title">JANEIRO: "Recomeço Acolhedor"</div>
-                                <div>Arquétipo: CUIDADOR | Paleta: Coral + Creme + Verde</div>
-                            </div>
-
-                            <div class="week-item">
-                                <div class="week-title">Semana 1 (01-07 Jan)</div>
-                                <p><strong>Reel 1:</strong> "Como começar a se movimentar sem pressão" (Cuidador)</p>
-                                <p><strong>Visual:</strong> Fundo creme, textos em coral</p>
-                                <p><strong>Stories:</strong> Boas-vindas 2026, sem cobranças</p>
-                            </div>
-
-                            <div class="week-item">
-                                <div class="week-title">Semana 2 (08-14 Jan)</div>
-                                <p><strong>Reel 2:</strong> "Seu corpo não é seu inimigo" (Cuidador + Mago)</p>
-                                <p><strong>Visual:</strong> Coral + Dourado (toques)</p>
-                                <p><strong>Stories:</strong> Mitos sobre começar a treinar 40+</p>
-                            </div>
-
-                            <div class="week-item">
-                                <div class="week-title">Semana 3 (15-21 Jan)</div>
-                                <p><strong>Carrossel:</strong> "5 sinais que seu corpo está pedindo movimento" (Cuidador)</p>
-                                <p><strong>Visual:</strong> Coral para títulos, fundos claros</p>
-                                <p><strong>Stories:</strong> Perguntas e respostas</p>
-                            </div>
-
-                            <div class="week-item">
-                                <div class="week-title">Semana 4 (22-31 Jan)</div>
-                                <p><strong>Reel 3:</strong> Treino suave ao ar livre (Cuidador + Criador)</p>
-                                <p><strong>Visual:</strong> Natural (outdoor) + overlay coral suave</p>
-                                <p><strong>Stories:</strong> Bastidores, rotina de treino</p>
-                            </div>
-                        </div>
-
-                        <div class="calendar-month">
-                            <div class="month-header">
-                                <div class="month-title">FEVEREIRO: "Transformação é Processo"</div>
-                                <div>Arquétipo: MAGO | Paleta: Coral + Dourado + Lavanda</div>
-                            </div>
-
-                            <div class="week-item">
-                                <div class="week-title">Semana 1</div>
-                                <p><strong>Reel 1:</strong> "O que acontece no seu corpo quando você se movimenta" (Mago)</p>
-                                <p><strong>Visual:</strong> Coral + Lavanda (consciência)</p>
-                            </div>
-
-                            <div class="week-item">
-                                <div class="week-title">Semana 2</div>
-                                <p><strong>Reel 2:</strong> Depoimento de transformação de aluna (Mago + Cuidador)</p>
-                                <p><strong>Visual:</strong> Antes/Depois com molduras em coral + dourado</p>
-                            </div>
-
-                            <div class="week-item">
-                                <div class="week-title">Semana 3</div>
-                                <p><strong>Carrossel:</strong> "7 benefícios do movimento que não aparecem no espelho" (Mago)</p>
-                                <p><strong>Visual:</strong> Ícones em coral, fundo creme, destaques dourados</p>
-                            </div>
-
-                            <div class="week-item">
-                                <div class="week-title">Semana 4</div>
-                                <p><strong>Reel 3:</strong> "Transformação não é linear" (Mago + Cuidador)</p>
-                                <p><strong>Visual:</strong> Gradiente coral suave</p>
-                            </div>
-                        </div>
-
-                        <div class="calendar-month">
-                            <div class="month-header">
-                                <div class="month-title">MARÇO: "Movimento Personalizado"</div>
-                                <div>Arquétipo: CRIADOR | Paleta: Coral + Verde + Bege</div>
-                            </div>
-
-                            <div class="week-item">
-                                <div class="week-title">Semana 1</div>
-                                <p><strong>Reel 1:</strong> "Mesmo exercício, 3 adaptações diferentes" (Criador)</p>
-                                <p><strong>Visual:</strong> Split screen com bordas em coral</p>
-                            </div>
-
-                            <div class="week-item">
-                                <div class="week-title">Semana 2</div>
-                                <p><strong>Reel 2:</strong> Treino em casa vs academia (Criador + Cuidador)</p>
-                                <p><strong>Visual:</strong> Ambientes naturais + elementos gráficos em coral</p>
-                            </div>
-
-                            <div class="week-item">
-                                <div class="week-title">Semana 3</div>
-                                <p><strong>Carrossel:</strong> "Como criar sua rotina de movimento" (Criador)</p>
-                                <p><strong>Visual:</strong> Infográfico coral + verde + bege</p>
-                            </div>
-
-                            <div class="week-item">
-                                <div class="week-title">Semana 4</div>
-                                <p><strong>Reel 3:</strong> Treino funcional ao ar livre (Criador + Mago)</p>
-                                <p><strong>Visual:</strong> Natural (parque) + textos em coral</p>
-                            </div>
-                        </div>
-
-                        <h3>Rotação Trimestral (Abril-Dezembro)</h3>
-
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Trimestre</th>
-                                    <th>Meses</th>
-                                    <th>Foco</th>
-                                    <th>Arquétipos</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Q2</td>
-                                    <td>Abr-Jun</td>
-                                    <td>Ciclo de Consistência</td>
-                                    <td>Rotação equilibrada dos 3</td>
-                                </tr>
-                                <tr>
-                                    <td>Q3</td>
-                                    <td>Jul-Set</td>
-                                    <td>Aprofundamento</td>
-                                    <td>Cuidador + Mago intensificados</td>
-                                </tr>
-                                <tr>
-                                    <td>Q4</td>
-                                    <td>Out-Dez</td>
-                                    <td>Consolidação e Celebração</td>
-                                    <td>Revisão e gratidão</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Seção 7: Diretrizes de Conteúdo -->
-            <section class="section" id="diretrizes">
-                <div class="section-header" onclick="toggleSection(this)">
-                    <h2><span class="section-icon">📝</span> Diretrizes de Conteúdo Por Arquétipo</h2>
-                    <span class="toggle-icon">▼</span>
-                </div>
-                <div class="section-content">
-                    <div class="section-body">
-                        <h3>NUNCA FAZER (Vai contra seus arquétipos)</h3>
-                        <ul class="cross-list">
-                            <li>Conteúdo agressivo tipo "No pain, no gain"</li>
-                            <li>Culpabilizar por não treinar</li>
-                            <li>Comparações entre corpos</li>
-                            <li>Promessas milagrosas</li>
-                            <li>Foco exclusivo em estética</li>
-                            <li>Linguagem militar ou de combate</li>
-                            <li>"Antes e depois" sem contexto de processo</li>
-                            <li>Cores vibrantes e agressivas (vermelho puro, amarelo neon)</li>
-                        </ul>
-
-                        <h3>SEMPRE FAZER (Alinhado com seus arquétipos)</h3>
-                        <ul class="check-list">
-                            <li>Acolher onde a pessoa está</li>
-                            <li>Celebrar pequenos progressos</li>
-                            <li>Explicar o "porquê" por trás dos exercícios</li>
-                            <li>Mostrar adaptações e variações</li>
-                            <li>Falar de benefícios amplos (não só corpo)</li>
-                            <li>Compartilhar processos, não só resultados</li>
-                            <li>Usar "nós" e "juntas" (comunidade)</li>
-                            <li>Normalizar dificuldades e recomeços</li>
-                            <li>Usar sua paleta de marca (coral como protagonista)</li>
-                        </ul>
-
-                        <h3>Glossário de Marca (Linguagem Arquetípica)</h3>
-
-                        <div class="arquetipo-card">
-                            <h4>🤲 Palavras/Frases CUIDADOR para USAR:</h4>
-                            <ul>
-                                <li>Acolher, cuidar, respeitar, apoiar</li>
-                                <li>"Vamos juntas", "No seu ritmo"</li>
-                                <li>"Seu corpo merece", "Você é capaz"</li>
-                                <li>Autocuidado, sustentável, gentil</li>
-                            </ul>
-                        </div>
-
-                        <div class="arquetipo-card">
-                            <h4>✨ Palavras/Frases MAGO para USAR:</h4>
-                            <ul>
-                                <li>Transformar, ativar, despertar, renovar</li>
-                                <li>"É possível", "Tudo começa"</li>
-                                <li>"Seu corpo é sábio", "Potencial"</li>
-                                <li>Consciência, energia, vitalidade</li>
-                            </ul>
-                        </div>
-
-                        <div class="arquetipo-card">
-                            <h4>🎨 Palavras/Frases CRIADOR para USAR:</h4>
-                            <ul>
-                                <li>Adaptar, personalizar, criar, explorar</li>
-                                <li>"Vamos descobrir", "Cada corpo único"</li>
-                                <li>"Treino seu", "Movimento criativo"</li>
-                                <li>Inovação, variedade, curiosidade</li>
-                            </ul>
-                        </div>
-
-                        <h4>❌ Palavras/Frases para EVITAR (Contradizem Arquétipos):</h4>
-                        <ul class="cross-list">
-                            <li>"Sem desculpas", "No pain no gain"</li>
-                            <li>"Corpo dos sonhos", "Corpo perfeito"</li>
-                            <li>"Batalha", "guerra", "luta"</li>
-                            <li>"Conquiste", "domine", "vença"</li>
-                            <li>"Você precisa", "você deve"</li>
-                            <li>"Queime", "destrua", "massacre"</li>
-                        </ul>
-
-                        <h3>Checklist de Alinhamento Arquetípico e Visual</h3>
-                        
-                        <div class="highlight-box">
-                            <p><strong>Antes de publicar qualquer conteúdo, pergunte:</strong></p>
-                            <ul class="check-list">
-                                <li>Este conteúdo acolhe? (Cuidador)</li>
-                                <li>Este conteúdo inspira transformação? (Mago)</li>
-                                <li>Este conteúdo mostra personalização? (Criador)</li>
-                                <li>A linguagem está alinhada?</li>
-                                <li>Evitei palavras/frases da lista proibida?</li>
-                                <li>O coral está presente no visual?</li>
-                                <li>A paleta está coerente com a identidade?</li>
-                                <li>O conteúdo é visualmente reconhecível como seu?</li>
-                            </ul>
-                            <p style="margin-top: 20px;"><strong>Se sim para pelo menos 2 dos 3 primeiros E para as 3 questões visuais: conteúdo aprovado! ✅</strong></p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Seção 8: Metas de Crescimento -->
-            <section class="section" id="crescimento">
-                <div class="section-header" onclick="toggleSection(this)">
-                    <h2><span class="section-icon">📈</span> Estratégia de Crescimento 2026</h2>
-                    <span class="toggle-icon">▼</span>
-                </div>
-                <div class="section-content">
-                    <div class="section-body">
-                        <h3>Metas de Alcance (Baseadas em Conteúdo Arquetípico)</h3>
-
-                        <div class="stats-grid">
-                            <div class="stat-card" style="background: var(--verde);">
-                                <span class="stat-number">Q1</span>
-                                <span class="stat-label">Jan-Mar 2026</span>
-                            </div>
-                            <div class="stat-card" style="background: var(--coral);">
-                                <span class="stat-number">10-12k</span>
-                                <span class="stat-label">Alcance/mês</span>
-                            </div>
-                            <div class="stat-card" style="background: var(--dourado);">
-                                <span class="stat-number">2.500-2.700</span>
-                                <span class="stat-label">Seguidores</span>
-                            </div>
-                            <div class="stat-card" style="background: var(--lavanda);">
-                                <span class="stat-number">25%+</span>
-                                <span class="stat-label">Engajamento</span>
-                            </div>
-                        </div>
-
-                        <h3>Projeção Anual</h3>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Período</th>
-                                    <th>Alcance/Mês</th>
-                                    <th>Seguidores</th>
-                                    <th>Engajamento</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Atual (Dez 2025)</strong></td>
-                                    <td>6.062</td>
-                                    <td>2.013</td>
-                                    <td>32,7%</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Q1 (Jan-Mar)</strong></td>
-                                    <td>10.000-12.000</td>
-                                    <td>2.500-2.700</td>
-                                    <td>25%+</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Q2 (Abr-Jun)</strong></td>
-                                    <td>15.000-18.000</td>
-                                    <td>3.200-3.500</td>
-                                    <td>20-25%</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Q3-Q4 (Jul-Dez)</strong></td>
-                                    <td>25.000-30.000</td>
-                                    <td>4.500-5.500</td>
-                                    <td>18-22%</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <h3>Como Chegar Lá</h3>
-
-                        <div class="highlight-box">
-                            <h4>1. PRIORIZAR REELS (2-3/semana)</h4>
-                            <ul>
-                                <li>Formato que teve melhor performance (4.611 views)</li>
-                                <li>Sempre com movimento dinâmico</li>
-                                <li>Mix dos 3 arquétipos</li>
-                                <li><strong>Identidade visual consistente</strong> (coral sempre presente)</li>
-                            </ul>
-                        </div>
-
-                        <div class="highlight-box">
-                            <h4>2. APROVEITAR VÍDEOS DE AULAS</h4>
-                            <ul>
-                                <li>Material autêntico já existe</li>
-                                <li>Mostra você em ação (Criador + Cuidador)</li>
-                                <li>Economiza tempo de produção</li>
-                                <li>Adicionar elementos gráficos em coral nos vídeos</li>
-                            </ul>
-                        </div>
-
-                        <div class="highlight-box">
-                            <h4>3. BANCO DE CONTEÚDO</h4>
-                            <ul>
-                                <li>1 sessão de gravação/mês</li>
-                                <li>2-3h produzindo 15-20 Stories + 5-8 Reels</li>
-                                <li>Permite consistência sem stress</li>
-                                <li>Preparar templates com paleta de marca</li>
-                            </ul>
-                        </div>
-
-                        <div class="highlight-box">
-                            <h4>4. LINGUAGEM ARQUETÍPICA CONSISTENTE</h4>
-                            <ul>
-                                <li>Revisar cada legenda: está alinhada?</li>
-                                <li>Tom de voz coerente em todos os pontos de contato</li>
-                                <li>Reforçar posicionamento único</li>
-                                <li><strong>Identidade visual coerente</strong> (sempre usar coral)</li>
-                            </ul>
-                        </div>
-
-                        <h3>Indicadores de Sucesso</h3>
-
-                        <h4>Indicadores Qualitativos:</h4>
-                        <ul class="check-list">
-                            <li>Comentários: "Me sinto acolhida aqui"</li>
-                            <li>Comentários: "Finalmente encontrei alguém que me entende"</li>
-                            <li>Perguntas sobre processo (não só resultado)</li>
-                            <li>Compartilhamentos com "isso é pra você"</li>
-                            <li>Reconhecimento visual antes de ver o nome</li>
-                            <li>Crescimento qualificado (mulheres 40+, São Mateus)</li>
-                        </ul>
-
-                        <h4>Indicadores Quantitativos por Trimestre:</h4>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Métrica</th>
-                                    <th>Q1</th>
-                                    <th>Q2</th>
-                                    <th>Q3-Q4</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Engajamento</td>
-                                    <td>25%+</td>
-                                    <td>20-25%</td>
-                                    <td>18-22%</td>
-                                </tr>
-                                <tr>
-                                    <td>Crescimento/Mês</td>
-                                    <td>+150-200</td>
-                                    <td>+200-250</td>
-                                    <td>+250-350</td>
-                                </tr>
-                                <tr>
-                                    <td>Reels/Mês</td>
-                                    <td>8-10</td>
-                                    <td>10-12</td>
-                                    <td>10-12</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Seção Final: Carta -->
-            <section class="section">
-                <div class="section-header" onclick="toggleSection(this)">
-                    <h2><span class="section-icon">💬</span> Carta para Simonia</h2>
-                    <span class="toggle-icon">▼</span>
-                </div>
-                <div class="section-content">
-                    <div class="section-body">
-                        <p style="font-size: 1.1em; line-height: 1.9;">Simonia,</p>
-
-                        <p style="font-size: 1.1em; line-height: 1.9;">Descobrir seus arquétipos de marca foi <strong>revelador</strong>. E perceber como sua logo já manifestava essa essência foi ainda mais especial.</p>
-
-                        <p style="font-size: 1.1em; line-height: 1.9;">O coral/terracota da sua marca não é só uma cor bonita. É a tradução visual perfeita de quem você é:</p>
-
-                        <div class="highlight-box">
-                            <p style="font-size: 1.2em;"><strong>Quente, mas não agressiva.</strong> (Cuidador)</p>
-                            <p style="font-size: 1.2em;"><strong>Energética, mas não intimidadora.</strong> (Mago)</p>
-                            <p style="font-size: 1.2em;"><strong>Vibrante, mas não gritante.</strong> (Criador)</p>
-                            <p style="font-size: 1.1em; margin-top: 15px;">Essa cor diz: "Estou aqui para você, com energia e acolhimento."</p>
-                        </div>
-
-                        <p style="font-size: 1.1em; line-height: 1.9;">Cuidador + Mago + Criador não é uma combinação aleatória. É exatamente quem você é e como você trabalha.</p>
-
-                        <p style="font-size: 1.1em; line-height: 1.9;"><strong>Você cuida</strong> das suas alunas com empatia genuína.<br>
-                        <strong>Você transforma</strong> vidas através do movimento consciente.<br>
-                        <strong>Você cria</strong> treinos personalizados que respeitam individualidades.</p>
-
-                        <p style="font-size: 1.1em; line-height: 1.9;">E sabe o que é mais bonito? <strong>Seus números já refletem isso.</strong></p>
-
-                        <p style="font-size: 1.1em; line-height: 1.9;">32,7% de engajamento não acontece por acaso. Acontece porque as pessoas <strong>sentem</strong> a autenticidade. Elas não estão só seguindo uma personal trainer. Estão se conectando com alguém que genuinamente se importa com a jornada delas.</p>
-
-                        <div class="highlight-box" style="background: linear-gradient(135deg, var(--creme) 0%, var(--branco) 100%); border-left-color: var(--dourado);">
-                            <p style="font-size: 1.15em; line-height: 1.9;">Para 2026, nossa missão é clara: <strong>amplificar essa essência em cada conteúdo, com identidade visual consistente.</strong></p>
-                        </div>
-
-                        <p style="font-size: 1.1em; line-height: 1.9;">Não vamos mudar quem você é. Vamos tornar sua mensagem ainda mais clara, consistente e reconhecível.</p>
-
-                        <p style="font-size: 1.1em; line-height: 1.9;">Cada Reel, cada legenda, cada Story vai:</p>
-                        <ul style="font-size: 1.1em; line-height: 1.9;">
-                            <li>Reforçar seus arquétipos (Cuidador + Mago + Criador)</li>
-                            <li>Usar sua paleta de marca de forma estratégica</li>
-                            <li>Criar reconhecimento visual imediato</li>
-                            <li>Construir autoridade através da consistência</li>
-                        </ul>
-
-                        <p style="font-size: 1.1em; line-height: 1.9;">E com isso, vamos alcançar muito mais mulheres 40+ que estão esperando por exatamente o que você oferece: <strong>movimento que cuida, transforma e respeita, com a energia vibrante e acolhedora do seu coral.</strong></p>
-
-                        <p style="font-size: 1.2em; line-height: 1.9; margin-top: 30px; color: var(--coral);"><strong>Estou animada para construir essa marca junto com você em 2026! 🧡✨</strong></p>
-
-                        <p style="font-size: 1.1em; margin-top: 40px;"><strong>Com dedicação ao seu propósito,</strong></p>
-                        <p style="font-size: 1.2em; color: var(--coral); font-weight: 700;">Gizelle</p>
-                        <p style="font-size: 1em; color: #666;">Giz Marketing Digital<br>30 de dezembro de 2025</p>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">Giz Marketing Digital</div>
-                <p>Estratégias de branding autênticas para transformar presença digital</p>
-                <p style="margin-top: 20px; opacity: 0.8;">© 2025 Giz Marketing Digital. Todos os direitos reservados.</p>
+                <p><strong>Características:</strong> Cuidado, conexão, empatia e comportamento</p>
+                <p><strong>Essência:</strong> "Estou aqui para você"</p>
             </div>
-        </div>
-    </footer>
-
-    <!-- Scroll to Top Button -->
-    <div class="scroll-top" onclick="scrollToTop()">↑</div>
-
-    <script>
-        // Toggle Section
-        function toggleSection(header) {
-            const content = header.nextElementSibling;
-            const isActive = content.classList.contains('active');
             
-            // Close all sections
-            document.querySelectorAll('.section-content').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.querySelectorAll('.section-header').forEach(h => {
-                h.classList.remove('active');
-            });
+            <h4>Arquétipos Secundários</h4>
+            <div class="arquetipo-card">
+                <div class="arquetipo-header">
+                    <span class="arquetipo-icon"></span>
+                    <div>
+                        <div class="arquetipo-title">MAGO - 25%</div>
+                    </div>
+                </div>
+                <p><strong>Características:</strong> Inspiração, encantamento, magia, transformação e consciência</p>
+                <p><strong>Essência:</strong> "Tudo é possível"</p>
+            </div>
+
+            <div class="arquetipo-card">
+                <div class="arquetipo-header">
+                    <span class="arquetipo-icon"></span>
+                    <div>
+                        <div class="arquetipo-title">CRIADOR - 17%</div>
+                    </div>
+                </div>
+                <p><strong>Características:</strong> Criatividade, inovação, imaginação, curiosidade, integridade</p>
+                <p><strong>Essência:</strong> "Se você consegue imaginar, pode criar"</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="significado">
+    <div class="section-header">
+        <h2><span class="section-icon"></span> O Que Isso Significa Para Sua Marca</h2>
+        <span class="toggle-icon"></span>
+    </div>
+    <div class="section-content">
+        <div class="section-body">
+            <h3>A Combinação Perfeita para Mulheres 40+</h3>
+            <div class="highlight-box">
+                <h4>CUIDADOR + MAGO + CRIADOR = Transformação Acolhedora</h4>
+                <p>Seus arquétipos revelam algo fundamental: você não é apenas uma personal trainer que ensina exercícios. <strong>Você é uma facilitadora de transformação pessoal através do movimento.</strong></p>
+            </div>
             
-            // Open clicked section if it wasn't active
-            if (!isActive) {
-                content.classList.add('active');
-                header.classList.add('active');
+            <h4>CUIDADOR (25%) garante que:</h4>
+            <ul class="check-list">
+                <li>Suas alunas se sintam seguras e acolhidas</li>
+                <li>O ambiente é de suporte, não de cobrança</li>
+                <li>Cada pessoa é vista em sua individualidade</li>
+                <li>O processo respeita limitações e celebra pequenas vitórias</li>
+            </ul>
+
+            <h4>MAGO (25%) traz:</h4>
+            <ul class="check-list">
+                <li>A crença real de que transformação é possível</li>
+                <li>O encantamento de ver o corpo responder</li>
+                <li>A consciência de que movimento é mais que estética</li>
+                <li>A inspiração para continuar mesmo quando difícil</li>
+            </ul>
+
+            <h4>CRIADOR (17%) adiciona:</h4>
+            <ul class="check-list">
+                <li>Personalização dos treinos</li>
+                <li>Inovação nos métodos</li>
+                <li>Curiosidade sobre o que funciona para cada corpo</li>
+                <li>Integridade no processo (sem promessas vazias)</li>
+            </ul>
+
+            <h3>Por Que Isso Importa</h3>
+            <div class="highlight-box">
+                <h4>Diferenciação de mercado:</h4>
+                <p>A maioria das personal trainers usa arquétipos como:</p>
+                <ul>
+                    <li><strong>Herói:</strong> "Vença seus limites! Supere-se!"</li>
+                    <li><strong>Governante:</strong> "Domine seu corpo! Controle total!"</li>
+                    <li><strong>Explorador:</strong> "Desafie-se! Saia da zona de conforto!"</li>
+                </ul>
+                <p style="margin-top: 20px; font-size: 1.2em; font-weight: 600; color: var(--coral);">Você oferece o oposto disso.</p>
+                <p>E para mulheres 40+ que estão retomando movimento após anos paradas, sua abordagem é <strong>exatamente</strong> o que elas precisam.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="desempenho">
+    <div class="section-header">
+        <h2><span class="section-icon"></span> Análise de Desempenho (30 Nov - 29 Dez)</h2>
+        <span class="toggle-icon"></span>
+    </div>
+    <div class="section-content">
+        <div class="section-body">
+            <h3>Números do Período</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">37.760</span>
+                    <span class="stat-label">Visualizações Totais</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">2.013</span>
+                    <span class="stat-label">Seguidores</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">+101</span>
+                    <span class="stat-label">Novos Seguidores</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">659</span>
+                    <span class="stat-label">Interações</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">6.062</span>
+                    <span class="stat-label">Contas Alcançadas</span>
+                </div>
+                <div class="stat-card" style="background: var(--dourado);">
+                    <span class="stat-number">32,7%</span>
+                    <span class="stat-label">Taxa de Engajamento</span>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <h4>O QUE ESSES NÚMEROS SIGNIFICAM:</h4>
+                <p><strong>Engajamento de 32,7% é EXCEPCIONAL</strong></p>
+                <ul>
+                    <li>Média do mercado: 3-5%</li>
+                    <li>Você está <strong>6-10x acima da média</strong></li>
+                    <li>Isso indica público genuinamente conectado com sua mensagem</li>
+                    <li><strong>Seus arquétipos estão ressoando!</strong></li>
+                </ul>
+            </div>
+
+            <h3>Distribuição de Visualizações</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Formato</th>
+                        <th>% Visualizações</th>
+                        <th>% Interações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Stories</strong></td>
+                        <td>72,2%</td>
+                        <td>72,0%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reels</strong></td>
+                        <td>18,3%</td>
+                        <td>20,3%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Posts</strong></td>
+                        <td>9,5%</td>
+                        <td>7,8%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Performance dos Reels (Onde Está o Ouro)</h3>
+            <div class="highlight-box" style="border-left-color: var(--dourado);">
+                <h4>Top Reel: "ME DÊ 21 DIAS..."</h4>
+                <ul>
+                    <li>4.611 visualizações</li>
+                    <li>141 curtidas</li>
+                    <li><strong>3-7x mais visualizações</strong> que outros Reels</li>
+                </ul>
+            </div>
+
+            <h4>Por que funcionou?</h4>
+            <ul class="check-list">
+                <li>Conteúdo com movimento e energia</li>
+                <li>Movimento constante (visual dinâmico)</li>
+                <li>Contexto de treino real (autenticidade)</li>
+                <li>Energia acolhedora mas motivadora</li>
+                <li><strong>Manifesta seus arquétipos perfeitamente:</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>Cuidador: "Vou te guiar nessa jornada"</li>
+                        <li>Mago: "Em 21 dias, sua vida muda"</li>
+                        <li>Criador: Treino personalizado e inovador</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="identidade">
+    <div class="section-header">
+        <h2><span class="section-icon"></span> Identidade Visual Baseada nos Arquétipos</h2>
+        <span class="toggle-icon"></span>
+    </div>
+    <div class="section-content">
+        <div class="section-body">
+            <h3>Sua Paleta de Marca (Baseada na Logo Existente)</h3>
+            <div class="highlight-box">
+                <h4>COR PRINCIPAL CORAL/TERRACOTA: #C96B5F</h4>
+                <p><strong>Por que essa cor é perfeita para seus arquétipos:</strong></p>
+                <ul class="check-list">
+                    <li><strong>CUIDADOR:</strong> Tom quente e acolhedor (não agressivo)</li>
+                    <li><strong>MAGO:</strong> Energia vital e transformadora</li>
+                    <li><strong>CRIADOR:</strong> Criatividade e vitalidade</li>
+                </ul>
+            </div>
+            
+            <p>O coral/terracota é uma cor que transmite:</p>
+            <ul>
+                <li>Calor humano sem ser infantil</li>
+                <li>Energia sem ser agressiva</li>
+                <li>Vitalidade sem ser intimidadora</li>
+                <li>Feminilidade madura e confiante</li>
+            </ul>
+
+            <h3>Paleta de Cores Completa</h3>
+            <h4>Cores Principais:</h4>
+            <div class="color-palette">
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #C96B5F;"></div>
+                    <div class="color-name">Coral</div>
+                    <div class="color-code">#C96B5F</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #000000;"></div>
+                    <div class="color-name">Preto</div>
+                    <div class="color-code">#000000</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #FFFFFF; border: 2px solid #ccc;"></div>
+                    <div class="color-name">Branco</div>
+                    <div class="color-code">#FFFFFF</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #F5F1ED;"></div>
+                    <div class="color-name">Creme</div>
+                    <div class="color-code">#F5F1ED</div>
+                </div>
+            </div>
+
+            <h4>Cores Complementares (Para Expansão):</h4>
+            <div class="color-palette">
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #D4AF37;"></div>
+                    <div class="color-name">Dourado</div>
+                    <div class="color-code">#D4AF37</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #9CAF88;"></div>
+                    <div class="color-name">Verde Sálvia</div>
+                    <div class="color-code">#9CAF88</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #B695C0;"></div>
+                    <div class="color-name">Lavanda</div>
+                    <div class="color-code">#B695C0</div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-box" style="background: #D4C5B0;"></div>
+                    <div class="color-name">Bege</div>
+                    <div class="color-code">#D4C5B0</div>
+                </div>
+            </div>
+
+            <h3>Como Usar Sua Paleta</h3>
+            <div class="arquetipo-card">
+                <h4>CONTEÚDO CUIDADOR (30% do mix)</h4>
+                <ul>
+                    <li>Coral + Creme/Branco</li>
+                    <li>Tons suaves e acolhedores</li>
+                    <li>Fundo claro para transmitir leveza</li>
+                </ul>
+            </div>
+            <div class="arquetipo-card">
+                <h4>CONTEÚDO MAGO (40% do mix)</h4>
+                <ul>
+                    <li>Coral + Dourado (toques)</li>
+                    <li>Coral + Lavanda (transformação)</li>
+                    <li>Contraste para gerar inspiração</li>
+                </ul>
+            </div>
+            <div class="arquetipo-card">
+                <h4>CONTEÚDO CRIADOR (30% do mix)</h4>
+                <ul>
+                    <li>Coral + Verde Sálvia</li>
+                    <li>Coral + Bege</li>
+                    <li>Mix orgânico e natural</li>
+                </ul>
+            </div>
+
+            <h3>Estilo Visual</h3>
+            <h4>Fotografia:</h4>
+            <ul>
+                <li>Luz natural sempre que possível</li>
+                <li>Expressões calorosas e acessíveis</li>
+                <li>Mostrar processo (não só pose final)</li>
+                <li>Ambientes: academia, ar livre, casa</li>
+            </ul>
+
+            <h4>Composição:</h4>
+            <ul>
+                <li>Espaços respiráveis (não poluído)</li>
+                <li>Foco na pessoa, não nos equipamentos</li>
+                <li>Movimento capturado (não estático)</li>
+                <li>Variedade de ângulos</li>
+                <li><strong>Usar coral em elementos gráficos</strong> (textos, bordas, destaques)</li>
+            </ul>
+
+            <h4>Tipografia:</h4>
+            <ul>
+                <li>Fontes arredondadas (acolhimento) - similar à sua logo</li>
+                <li>Legível e clara (respeito ao leitor)</li>
+                <li>Hierarquia visual suave (não agressiva)</li>
+                <li>Preto para texto principal (como na logo)</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="estrategia">
+    <div class="section-header">
+        <h2><span class="section-icon"></span> Estratégia de Branding 2026</h2>
+        <span class="toggle-icon"></span>
+    </div>
+    <div class="section-content">
+        <div class="section-body">
+            <h3>Como Seus Arquétipos Devem Guiar o Conteúdo</h3>
+            
+            <div class="arquetipo-card">
+                <div class="arquetipo-header">
+                    <span class="arquetipo-icon"></span>
+                    <div class="arquetipo-title">CUIDADOR (Presente em TODO conteúdo)</div>
+                </div>
+                <h4>Tom de voz:</h4>
+                <ul>
+                    <li>Acolhedor, nunca intimidador</li>
+                    <li>"Vamos juntas" em vez de "Você precisa"</li>
+                    <li>Celebrar pequenos progressos</li>
+                    <li>Normalizar dificuldades</li>
+                </ul>
+                <h4>Temas:</h4>
+                <ul>
+                    <li>Respeitar o corpo onde ele está</li>
+                    <li>Movimento como autocuidado (não punição)</li>
+                    <li>Escutar os sinais do corpo</li>
+                    <li>Criar rotinas sustentáveis</li>
+                </ul>
+                <h4>Frases de marca:</h4>
+                <ul>
+                    <li>"Seu corpo merece cuidado, não cobrança"</li>
+                    <li>"Movimento que acolhe, não que exige"</li>
+                    <li>"Vamos no seu ritmo, sem pressa"</li>
+                    <li>"Cada corpo tem sua história"</li>
+                </ul>
+                <h4>Elementos visuais:</h4>
+                <ul>
+                    <li>Usar coral em fundos suaves</li>
+                    <li>Fotos com expressões calorosas</li>
+                    <li>Espaço visual respirável</li>
+                    <li>Tipografia arredondada</li>
+                </ul>
+            </div>
+
+            <div class="arquetipo-card">
+                <div class="arquetipo-header">
+                    <span class="arquetipo-icon"></span>
+                    <div class="arquetipo-title">MAGO (Conteúdo inspiracional - 40% do mix)</div>
+                </div>
+                <h4>Tom de voz:</h4>
+                <ul>
+                    <li>Inspirador mas realista</li>
+                    <li>"É possível" com base em evidências</li>
+                    <li>Transformação como processo natural</li>
+                    <li>Consciência corpo-mente</li>
+                </ul>
+                <h4>Temas:</h4>
+                <ul>
+                    <li>Transformações reais (antes/durante/depois)</li>
+                    <li>Ciência do movimento explicada de forma simples</li>
+                    <li>Como o corpo se adapta e melhora</li>
+                    <li>Benefícios além da estética (energia, sono, humor)</li>
+                </ul>
+                <h4>Frases de marca:</h4>
+                <ul>
+   <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">Giz Marketing Digital</div>
+            <p>Estratégias de branding autênticas para transformar presença digital</p>
+            <p style="margin-top: 20px; opacity: 0.8;">© 2025 Giz Marketing Digital. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+<div class="scroll-top">↑</div>
+
+<script>
+// Toggle Section
+function toggleSection(element) {
+    // Garantir que temos o header correto
+    const header = element.classList.contains('section-header') ? element : element.closest('.section-header');
+    if (!header) return;
+    
+    const content = header.nextElementSibling;
+    if (!content) return;
+    
+    const isActive = content.classList.contains('active');
+    
+    // Toggle apenas a seção clicada (não fechar todas)
+    if (isActive) {
+        content.classList.remove('active');
+        header.classList.remove('active');
+    } else {
+        content.classList.add('active');
+        header.classList.add('active');
+    }
+}
+
+// Scroll to Section
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({behavior: 'smooth', block: 'start'});
+        // Open the section
+        setTimeout(() => {
+            const header = section.querySelector('.section-header');
+            const content = section.querySelector('.section-content');
+            if (header && content && !content.classList.contains('active')) {
+                toggleSection(header);
             }
-        }
+        }, 500);
+    }
+}
 
-        // Scroll to Section
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                
-                // Open the section
-                setTimeout(() => {
-                    const header = section.querySelector('.section-header');
-                    const content = section.querySelector('.section-content');
-                    if (header && content && !content.classList.contains('active')) {
-                        toggleSection(header);
-                    }
-                }, 500);
-            }
-        }
+// Scroll to Top
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
-        // Scroll to Top
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+// Show/Hide Scroll to Top Button
+window.addEventListener('scroll', function() {
+    const scrollTop = document.querySelector('.scroll-top');
+    if (scrollTop) {
+        if (window.pageYOffset > 300) {
+            scrollTop.classList.add('visible');
+        } else {
+            scrollTop.classList.remove('visible');
         }
+    }
+});
 
-        // Show/Hide Scroll to Top Button
-        window.addEventListener('scroll', function() {
-            const scrollTop = document.querySelector('.scroll-top');
-            if (window.pageYOffset > 300) {
-                scrollTop.classList.add('visible');
-            } else {
-                scrollTop.classList.remove('visible');
+// Setup click handlers after DOM loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Add click handlers to all section headers
+    document.querySelectorAll('.section-header').forEach(header => {
+        header.style.cursor = 'pointer';
+        header.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleSection(this);
+        });
+    });
+
+    // Add click handlers to nav items
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('click', function(e) {
+            const sectionId = this.getAttribute('data-section');
+            if (sectionId) {
+                e.preventDefault();
+                scrollToSection(sectionId);
             }
         });
+    });
 
-        // Open first section by default
-        window.addEventListener('load', function() {
-            const firstSection = document.querySelector('.section-header');
-            if (firstSection) {
-                toggleSection(firstSection);
-            }
-        });
-    </script>
+    // Add click handler to scroll-top button
+    const scrollTopBtn = document.querySelector('.scroll-top');
+    if (scrollTopBtn) {
+        scrollTopBtn.addEventListener('click', scrollToTop);
+    }
+
+    // Open first section by default
+    const firstSection = document.querySelector('.section-header');
+    if (firstSection) {
+        toggleSection(firstSection);
+    }
+});
+</script>
+
 </body>
-</html>
+                </html>
+                    
